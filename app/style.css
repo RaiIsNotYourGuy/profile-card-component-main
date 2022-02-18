@@ -1,5 +1,12 @@
+/*  ===========
+    Variables
+    ===========  */
+
 :root {
-    --color-dark-cyan: hsl(185, 75%, 39%);
+    --dark-cyan: hsl(185, 75%, 39%);
+    --dark-desaturated-blue: hsl(229, 23%, 23%);
+    --dark-grayish-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
 }
 
 .attribution {
@@ -11,16 +18,204 @@
     color: hsl(228, 45%, 44%);
 }
 
+
+/*  ===========
+    Reset
+    ===========  */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 html,
 body {
     height: 100%;
 }
 
+
+/*  ===========
+    Layout
+    ===========  */
+
 body {
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
     margin: 0;
-    background: url("/images/bg-pattern-top.svg"), url("/images/bg-pattern-bottom.svg"), var(--color-dark-cyan);
+    background: url("/images/bg-pattern-top.svg"), url("/images/bg-pattern-bottom.svg"), var(--dark-cyan);
     background-repeat: no-repeat;
     background-position: right calc(47vw + 15%) bottom calc(65vh - 15vw), left calc(40vw + 25%) top calc(72vh - 10vw);
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+
+.card-bg {
+    background: url("/images/bg-pattern-card.svg");
+    height: 140px;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width:280px) {
+    .card-stats {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center;
+    }
+    .card-stats-followers-body,
+    .card-stats-likes-body,
+    .card-stats-photos-body {
+        margin-bottom: 20px;
+    }
+}
+
+
+/*  ===========
+    Main
+    ===========  */
+
+.card {
+    height: auto;
+    width: 100%;
+    max-width: 325px;
+    border-radius: 15px;
+    position: absolute;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.089);
+}
+
+.card-bg {
+    background: url("/images/bg-pattern-card.svg");
+    height: 140px;
+    border-radius: 15px 15px 0 0;
+    object-fit: fill;
+    background-position: center center;
+}
+
+.card-profile {
+    position: relative;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-profile-img {
+    margin-top: -5rem;
+    border: 5px solid white;
+    border-radius: 50%;
+}
+
+.card-profile-img img {
+    border-radius: 50%;
+}
+
+.card-profile-user {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--dark-desaturated-blue);
+    margin-bottom: 5px;
+}
+
+.card-profile-user span {
+    font-weight: 400;
+    opacity: 0.6;
+    margin-left: 5px;
+}
+
+.card-profile-location {
+    color: var(--dark-desaturated-blue);
+    opacity: 0.6;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.card-profile::after {
+    content: '';
+    background: var(--dark-gray);
+    opacity: 0.25;
+    width: 98%;
+    height: 1px;
+    display: block;
+}
+
+.card-stats {
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0 0 15px 15px;
+    padding: 20px 45px;
+    text-align: center;
+}
+
+.card-stats-followers,
+.card-stats-likes,
+.card-stats-photos {
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--dark-desaturated-blue);
+}
+
+.card-stats-followers-title,
+.card-stats-likes-title,
+.card-stats-photos-title {
+    margin-bottom: 2px;
+    margin-top: 0px;
+}
+
+.card-stats-followers-body,
+.card-stats-likes-body,
+.card-stats-photos-body {
+    opacity: 0.6;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+
+/*  ===========
+    Footer
+    ===========  */
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
 }
